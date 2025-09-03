@@ -1,0 +1,15 @@
+site_name: Misay's Note
+
+nav:
+  - Home: home.md
+  - 计算机组成原理:
+      - Overview: computerComposition/index.md
+  - 机器学习:
+      - Overview: ML/index.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs # 启用标签页样式
+    - navigation.sections # 启用章节样式
+
