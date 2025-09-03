@@ -39,3 +39,4 @@ jobs:
           force_orphan: true # 强制使用孤立分支，清理历史提交
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+          cname: note.zt2misay2.cn # 设置自定义域名
