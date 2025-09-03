@@ -2,9 +2,9 @@ name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
-    branches: [main, master] # 在推送到主分支时触发
+    branches: [master] # 只在推送到master分支时触发
   pull_request:
-    branches: [main, master]
+    branches: [master]
 
 permissions:
   contents: write # 允许工作流写入内容
@@ -35,3 +35,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site # 构建输出的目录
+          publish_branch: gh-pages # 发布到gh-pages分支
+          force_orphan: true # 强制使用孤立分支，清理历史提交
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
