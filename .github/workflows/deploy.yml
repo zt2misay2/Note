@@ -1,16 +1,16 @@
-name: Deploy MkDocs to GitHub Pages
+name: Build and Commit MkDocs Site to Master
 
 on:
   push:
-    branches: [master] # 只在推送到master分支时触发
+    branches: [master]
   pull_request:
     branches: [master]
 
 permissions:
-  contents: write # 允许工作流写入内容
+  contents: write
 
 jobs:
-  deploy:
+  build-and-commit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,19 +24,14 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs-material
-          # 如果有其他插件，在这里添加
-          # pip install mkdocs-plugin1 mkdocs-plugin2
 
       - name: Build site
         run: mkdocs build --strict
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site # 构建输出的目录
-          publish_branch: gh-pages # 发布到gh-pages分支
-          force_orphan: true # 强制使用孤立分支，清理历史提交
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          cname: note.zt2misay2.cn # 设置自定义域名
+      - name: Commit and push site directory
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add site
+          git commit -m "自动构建并提交 site 目录 [skip ci]" || echo "No changes to commit"
+          git push
