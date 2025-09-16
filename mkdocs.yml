@@ -1,5 +1,5 @@
 site_name: Misay's Note
-
+site_url: https://note.zt2misay2.cn
 nav:
   - Home: home.md
   - 计算机组成原理:
