@@ -1,37 +1,21 @@
-name: Build and Commit MkDocs Site to Master
+name: Publish docs via GitHub Pages
 
 on:
   push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
-permissions:
-  contents: write
+    branches:
+      - master
 
 jobs:
-  build-and-commit:
+  build:
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout master
+        uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material
-
-      - name: Build site
-        run: mkdocs build --strict
-
-      - name: Commit and push site directory
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add site
-          git commit -m "自动构建并提交 site 目录 [skip ci]" || echo "No changes to commit"
-          git push
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_DOMAIN: note.zt2misay2.cn
+          CONFIG_FILE: mkdocs.yml
