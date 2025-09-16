@@ -1,9 +1,9 @@
 site_name: Misay's Note
 site_url: https://note.zt2misay2.cn
 nav:
-  - Home: home.md
+  - Home: index.md
   - 计算机组成原理:
-      - Overview: computerComposition/index.md
+      - Overview: ComputationStructure/index.md
   - 机器学习:
       - Overview: ML/index.md
 
