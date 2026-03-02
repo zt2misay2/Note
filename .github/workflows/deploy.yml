@@ -5,22 +5,31 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-encryptcontent-plugin pymdown-extensions mkdocs-mermaid2-plugin
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Deploy docs
         env:
