@@ -2,10 +2,15 @@ site_name: Misay's Note
 site_url: https://note.zt2misay2.cn
 nav:
   - Home: index.md
-  - 计算机组成原理:
-      - Overview: ComputationStructure/index.md
-  - 机器学习:
-      - Overview: ML/index.md
+  - Course:
+      - Overview: course/index.md
+      - 计算机组成原理: course/computation-structure.md
+  - Study:
+      - Overview: study/index.md
+      - Machine Learning: study/machine-learning.md
+  - Daily:
+      - Overview: daily/index.md
+      - 2026-03-02: daily/2026-03-02.md
 
 theme:
   name: material
