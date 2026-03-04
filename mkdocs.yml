@@ -1,20 +1,22 @@
-site_name: Misay's Note
+﻿site_name: Misay's Note
 site_url: https://note.zt2misay2.cn
+
 nav:
   - Home: index.md
   - Course:
       - Overview: course/index.md
-      - 计算机组成原理: course/computation-structure.md
+      - 计算机组成原理: course/past/computation-structure.md
+      - 数据库系统及安全: course/database/index.md
   - Study:
       - Overview: study/index.md
-      - Machine Learning: study/machine-learning.md
   - Daily:
       - Overview: daily/index.md
-      - 2026-03-02: daily/2026-03-02.md
-
 theme:
   name: material
+  language: zh
   features:
-    - navigation.tabs # 启用标签页样式
-    - navigation.sections # 启用章节样式
+    - navigation.tabs
+    - navigation.sections
 
+extra_css:
+  - stylesheets/extra.css
