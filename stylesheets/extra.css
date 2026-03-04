@@ -1,0 +1,36 @@
+﻿/* Script-aware font mapping: Latin -> JetBrains Mono, CJK -> Source Han Serif */
+@font-face {
+  font-family: "NoteText";
+  src: local("JetBrains Mono"), local("JetBrainsMono-Regular");
+  unicode-range: U+0000-00FF, U+0100-024F, U+1E00-1EFF, U+2000-206F;
+}
+
+@font-face {
+  font-family: "NoteText";
+  src:
+    local("Noto Serif SC"), local("Noto Serif SC"), local("Noto Serif SC"),
+    local("Noto Serif SC"), local("Noto Serif SC"), local("Noto Serif SC");
+  unicode-range:
+    U+2E80-2EFF, U+2F00-2FDF, U+3040-30FF, U+3100-312F, U+31A0-31BF,
+    U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+:root {
+  --md-text-font: "NoteText", serif;
+  --md-code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+body,
+.md-typeset,
+.md-nav,
+.md-header,
+.md-tabs {
+  font-family: var(--md-text-font);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--md-code-font);
+}
