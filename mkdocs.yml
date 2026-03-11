@@ -20,3 +20,15 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+
+markdown_extensions:
+  - sane_lists
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
