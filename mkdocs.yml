@@ -7,6 +7,7 @@ nav:
       - Overview: course/index.md
       - 计算机组成原理: course/past/computation-structure.md
       - 数据库系统及安全: course/database/index.md
+      - 人工智能: course/ai/index.md
   - Study:
       - Overview: study/index.md
   - Daily:
