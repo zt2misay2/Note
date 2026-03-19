@@ -1,0 +1,936 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://note.zt2misay2.cn/course/ai/HW1/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>HW1 - Misay's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Misay&#39;s Note" class="md-header__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Misay's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HW1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study/" class="md-tabs__link">
+          
+  
+  
+  Study
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../daily/" class="md-tabs__link">
+          
+  
+  
+  Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Misay&#39;s Note" class="md-nav__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Misay's Note
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../past/computation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机组成原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统及安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../daily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、 选择题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、 填空题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、 简答题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、 简答题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 什么是人工智能？试从学科和能力两方面加以说明。
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 现在人工智能有哪些学派？它们的认知观是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>HW1</h1>
+
+<h2 id="_1">一、 选择题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>1. 以下哪两种对人工智能的定义中涉及拟人思维？</strong></p>
+<ul>
+<li>A. 人工智能是计算机科学中研究、设计和应用智能机器的一个分支。</li>
+<li><strong>B. 人工智能是一种使计算机能够思维、使机器具有智力的激动人心的新尝试。</strong></li>
+<li>C. 人工智能研究如何使计算机做事比人过得更好。</li>
+<li><strong>D. 人工智能是那些与人的思维、决策、问题求解和学习等有关活动的自动化。</strong></li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> B 和 D 选项明确提到了“思维”、“智力”、“问题求解”等人类特有的认知活动，属于“类人思维”定义的范畴。</p>
+</blockquote>
+<p><strong>2. 下列选项从学科的角度来说什么是人工智能？</strong></p>
+<ul>
+<li>A. 研究使理解、推理和行为成为可能的计算。</li>
+<li>B. 研究机器执行通常与人类智能有关的判断、推理、识别、学习等行为。</li>
+<li><strong>C. 人工智能是计算机科学中涉及研究、设计和应用智能机器的一个分支。</strong></li>
+<li>D. 人工智能是计算机科学中与智能行为自动化有关的一个分支。</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> “学科角度”通常强调 AI 在科学体系中的位置，即作为<strong>计算机科学的一个分支</strong>。</p>
+</blockquote>
+<p><strong>3. 对于人工智能的发展来说，20世纪30年代和40年代的智能界发现了两件最重要的事：</strong></p>
+<ul>
+<li><strong>A. 数理逻辑</strong></li>
+<li><strong>B. 关于计算的新思想</strong></li>
+<li>C. 机器逻辑</li>
+<li>D. 存储程序控制</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 数理逻辑为 AI 提供了语言基础，而以图灵机为代表的“计算新思想”则为机器实现智能提供了理论可能性。</p>
+</blockquote>
+<p><strong>4. 被称为“人工智能之父”的是：</strong></p>
+<ul>
+<li><strong>A. 阿兰·图灵 (Alan Turing)</strong></li>
+<li>B. 阿隆佐·丘奇 (Alonzo Church)</li>
+<li>C. 克劳德·香农 (Claude Shannon)</li>
+<li>D. 赫伯特·西蒙 (Herbert Simon)</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 图灵提出了著名的“图灵测试”并定义了计算的本质，被广泛公认为 AI 之父。</p>
+</blockquote>
+<p><strong>5. 属于图灵（Turing）提出或参与的成果有：</strong></p>
+<ul>
+<li>A. 把数理关系理论简化为类型论</li>
+<li>B. 逻辑机</li>
+<li><strong>C. 关于计算本质的思想，提供了形式推理概念与即将发明的计算机之间的联系。</strong></li>
+<li><strong>D. 创造简单通用的非数字计算模型，并证明计算机可按某种被理解为智能的方法工作。</strong></li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> C 对应图灵机的理论贡献，D 对应其对机器智能普适性的证明。</p>
+</blockquote>
+<p><strong>6. 在人工智能发展过程中具有重要意义的（ ）的提出和兴起，使人工智能发展成为具有较坚实理论基础和广泛应用领域的学科。</strong></p>
+<ul>
+<li><strong>A. 计算智能 (Computational Intelligence)</strong></li>
+<li>B. 专家系统</li>
+<li>C. 智能控制</li>
+<li>D. 模糊计算</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 计算智能（包括神经网络、进化计算等）的体系化标志着 AI 进入了具备坚实数学和工程基础的新阶段。</p>
+</blockquote>
+<p><strong>7. 以扎德（L. A. Zadeh）1965年提出的模糊集合作为基础的是：</strong></p>
+<ul>
+<li><strong>A. 模糊计算 (Fuzzy Computing)</strong></li>
+<li>B. 模糊集理论</li>
+<li>C. 进化计算</li>
+<li>D. 遗传算法</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 扎德是模糊数学的奠基人，其理论直接演变为模糊计算技术。</p>
+</blockquote>
+<p><strong>8. 已知一个完善的符号系统能执行输入、输出、存储、复制、建立结构、条件迁移等 6 种功能，下列说法正确的是：</strong></p>
+<ul>
+<li><strong>A. 能表现智能的系统必然能执行这 6 种功能；有这 6 种功能的系统就能表现智能。</strong></li>
+<li>B. 能表现智能不一定能执行这 6 种功能；有这 6 种功能就一定能表现智能。</li>
+<li>C. 能表现智能必然能执行这 6 种功能；有这 6 种功能不一定能表现智能。</li>
+<li>D. 能表现智能不一定能执行这 6 种功能；有这 6 种功能也不一定能表现智能。</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 这是著名的<strong>物理符号系统假设</strong>（纽厄尔与西蒙提出），认为这 6 项功能是实现人工智能的充分必要条件。</p>
+</blockquote>
+<p><strong>9. 在各种人工智能学派中，认为人工智能源于数理逻辑的是：</strong></p>
+<ul>
+<li><strong>A. 符号主义 (Symbolism)</strong></li>
+<li>B. 联结主义</li>
+<li>C. 行为主义</li>
+<li>D. 进化主义</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 符号主义主张用逻辑符号来建模认知。</p>
+</blockquote>
+<p><strong>10. 专家系统成功开发与应用后，在其他学派出现之后仍然是人工智能主流的是：</strong></p>
+<ul>
+<li>A. 联结主义</li>
+<li>B. 行为主义</li>
+<li><strong>C. 符号主义</strong></li>
+<li>D. 进化主义</li>
+</ul>
+<blockquote>
+<p><strong>解析：</strong> 20 世纪 70-80 年代，以专家系统为代表的符号主义占据了 AI 研究的绝对统治地位。</p>
+</blockquote>
+<hr />
+<h2 id="_2">二、 填空题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>在各种人工智能的学派中，原理主要为神经网络及神经网络间连接机制与学习算法的是：<strong>联结主义</strong>。</li>
+<li>1948 年维纳发表《控制论》，不但开创了近代控制论，而且为人工智能的行为主义树立了新的里程碑。我国优秀科学家钱学森提出的<strong>《工程控制论》</strong>开辟了控制论的新分支。</li>
+<li>被誉为“专家系统和知识工程之父”的费根鲍姆所领导的研究小组于 1968 年研制成功第一个专家系统 <strong>DENDRAL</strong>；1977 年进一步提出了<strong>知识工程</strong>的概念。</li>
+<li>人心理活动可分为思维策略、初级信息处理和生理过程。与此相对应的是计算机的<strong>软件</strong>、<strong>程序</strong>、<strong>硬件</strong>。</li>
+<li>联结主义认为人工智能源于：<strong>仿生学</strong>。</li>
+</ol>
+<hr />
+<h2 id="_3">三、 简答题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 什么是人工智能？试从学科和能力两方面加以说明。<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>学科层面：</strong> 人工智能是计算机科学的一个分支。它是一门研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。</li>
+<li><strong>能力层面：</strong> 人工智能是指机器所展现出的类似于人类认知功能的特质，包括感知（视觉、听觉）、处理（语言理解、逻辑推理）、学习（从经验中改进）以及执行决策的能力。</li>
+</ul>
+<h3 id="2">2. 现在人工智能有哪些学派？它们的认知观是什么？<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>主要分为以下三大传统学派：</p>
+<ul>
+<li><strong>符号主义 (Symbolism)：</strong> 认为智能的基础是物理符号系统（符号表示和逻辑运算），认知过程即逻辑推理过程。</li>
+<li><strong>联结主义 (Connectionism)：</strong> 认为智能源于大脑的生理结构（神经元连接机制），认知过程即神经元权重的调节过程。</li>
+<li><strong>行为主义 (Actionism)：</strong> 认为智能取决于感知与行动（进化与反馈），认知过程即生物体对环境的适应过程，不一定需要复杂的内部建模</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
