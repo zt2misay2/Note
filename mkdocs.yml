@@ -25,6 +25,9 @@ extra_css:
 
 extra_javascript:
   - javascripts/mathjax.js
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid.js
+  - javascripts/sidebar.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
@@ -39,4 +42,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
