@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Noto+Serif+SC:wght@400;500;700;900&display=swap");
+
+/* Keep Material layout; override only typography and palette. */
+@font-face {
+  font-family: "NoteText";
+  src: local("JetBrains Mono"), local("JetBrainsMono-Regular");
+  unicode-range: U+0000-00FF, U+0100-024F, U+1E00-1EFF, U+2000-206F;
+}
+
+@font-face {
+  font-family: "NoteText";
+  src:
+    local("Source Han Serif SC"), local("Source Han Serif CN"),
+    local("Noto Serif CJK SC"), local("Noto Serif SC");
+  unicode-range:
+    U+2E80-2EFF, U+2F00-2FDF, U+3040-30FF, U+3100-312F, U+31A0-31BF,
+    U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+:root {
+  --md-text-font: "NoteText", "JetBrains Mono", "Source Han Serif SC", "Noto Serif SC", serif;
+  --md-code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+:root,
+[data-md-color-scheme="default"] {
+  --primary-orange: #a14a2f;
+  --primary-orange-dark: #8d3f27;
+  --primary-bg: #faf9f5;
+  --primary-text: #2c2c2c;
+  --primary-sidebar: #f5f4ed;
+  --primary-selection: #a14a2f30;
+  --primary-border: rgba(44, 44, 44, 0.12);
+  --primary-muted: rgba(44, 44, 44, 0.68);
+  --md-default-bg-color: var(--primary-bg);
+  --md-default-fg-color: var(--primary-text);
+  --md-default-fg-color--light: #4f4f4f;
+  --md-default-fg-color--lighter: #767676;
+  --md-default-fg-color--lightest: #b8b8b2;
+  --md-primary-fg-color: var(--primary-orange);
+  --md-primary-fg-color--light: #cf7656;
+  --md-primary-fg-color--dark: var(--primary-orange-dark);
+  --md-primary-bg-color: #fffaf5;
+  --md-accent-fg-color: var(--primary-orange);
+  --md-accent-fg-color--transparent: #a14a2f30;
+  --md-accent-bg-color: #fffdfa;
+  --md-code-bg-color: #f3f1e8;
+  --md-code-fg-color: var(--primary-text);
+  --md-typeset-a-color: var(--primary-orange);
+  --md-typeset-table-color: rgba(44, 44, 44, 0.14);
+  --md-typeset-kbd-color: #fffdfa;
+  --md-typeset-kbd-accent-color: #ece7dc;
+  --md-typeset-kbd-border-color: rgba(44, 44, 44, 0.2);
+}
+
+body,
+.md-typeset,
+.md-nav,
+.md-header,
+.md-tabs {
+  font-family: var(--md-text-font);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--md-code-font);
+}
+
+body {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+.md-header,
+.md-tabs {
+  background-color: var(--md-primary-fg-color) !important;
+  color: var(--md-primary-bg-color);
+}
+
+.md-sidebar,
+.md-search__form {
+  background: var(--primary-sidebar);
+}
+
+.md-search__form {
+  border: 1px solid var(--primary-border);
+}
+
+.md-tabs {
+  border-bottom: 1px solid var(--primary-border);
+}
+
+.md-header__title,
+.md-tabs__link,
+.md-header__button,
+.md-header__option,
+.md-source,
+.md-source:hover {
+  color: var(--md-primary-bg-color);
+}
+
+.md-search__form,
+.md-search__input,
+.md-search__icon {
+  color: var(--primary-text);
+}
+
+.md-nav__link:is(:hover, :focus),
+.md-nav__item .md-nav__link--active,
+.md-tabs__link:is(:hover, :focus),
+.md-tabs__item--active .md-tabs__link {
+  color: var(--primary-orange);
+}
+
+.md-tabs__link:is(:hover, :focus),
+.md-tabs__item--active .md-tabs__link,
+.md-header__button:is(:hover, :focus),
+.md-header__option:is(:hover, :focus) {
+  color: #fffaf5;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  opacity: 1;
+}
+
+.md-tabs__link:is(:hover, :focus),
+.md-tabs__item--active .md-tabs__link {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 250, 245, 0.72);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: var(--primary-text);
+}
+
+.md-typeset strong,
+.md-typeset b {
+  color: var(--primary-orange-dark);
+}
+
+.md-typeset em,
+.md-typeset i {
+  color: var(--primary-orange);
+}
+
+.md-typeset a {
+  color: var(--primary-orange);
+}
+
+.md-typeset a:hover {
+  color: var(--primary-orange-dark);
+}
+
+.md-typeset mark {
+  background: var(--primary-selection);
+  color: inherit;
+}
+
+.md-typeset blockquote {
+  border-inline-start-color: var(--primary-orange);
+  color: var(--primary-muted);
+}
+
+.md-typeset ::selection,
+.md-search-result__teaser mark {
+  background: var(--primary-selection);
+}
+
+.md-typeset code {
+  background: #f3f1e8;
+}
