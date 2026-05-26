@@ -1,0 +1,1083 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://note.zt2misay2.cn/course/database/HW9/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>第九章作业 - Misay's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Misay&#39;s Note" class="md-header__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Misay's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第九章作业
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study/" class="md-tabs__link">
+          
+  
+  
+  Study
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../daily/" class="md-tabs__link">
+          
+  
+  
+  Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Misay&#39;s Note" class="md-nav__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Misay's Note
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../past/computation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机组成原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统及安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随笔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../daily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念简答
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        综合题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="综合题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">第九章作业<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概念简答<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>什么是事务?它有哪些属性?</p>
+</blockquote>
+<p>事务是 是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位</p>
+<p>具备原子性 一致性 隔离性 持久性</p>
+<blockquote>
+<p>并发操作困难会产生哪几类数据不一致?</p>
+</blockquote>
+<ul>
+<li>丢失修改 </li>
+<li>不可重复读 </li>
+<li>读"脏数据" </li>
+<li>幻像</li>
+</ul>
+<blockquote>
+<p>什么是封锁?基本的封锁类型有几种?简述它们的含义。</p>
+</blockquote>
+<p>封锁是事务T在对某个数据对象例如表、记录等操作之前，先向系统发出请求，对其加锁。加锁后事务T就对该数据对象有了一定的控制，在事务T释放它的锁之前，其他事务对该数据的操作受到一定限制 类似OS的锁</p>
+<p>包含 </p>
+<ul>
+<li>排它锁 即在写数据的时候拒绝其他事务同时写产生冲突</li>
+<li>共享锁 事务在读数据时运行其他事务一并读</li>
+</ul>
+<blockquote>
+<p>如何用封锁机制保证数据的一致性?</p>
+</blockquote>
+<p>制定三级封锁协议</p>
+<ul>
+<li><strong>一级封锁协议</strong>：修改数据前必须加X锁，直到事务结束才释放。可避免丢失修改 </li>
+<li><strong>二级封锁协议</strong>：在一级的基础上，读取数据前必须加S锁，读完后即可释放S锁。可避免丢失修改和读“脏”数据   </li>
+<li><strong>三级封锁协议</strong>：在一级的基础上，读取数据前必须加S锁，<strong>直到事务结束才释放</strong>。可避免丢失修改、读“脏”数据和不可重复读</li>
+</ul>
+<blockquote>
+<p>如何保证并行操作的可串行性?</p>
+</blockquote>
+<p>即<strong>两段锁协议</strong></p>
+<ul>
+<li>在对任何数据进行读、写操作之前，首先要申请并获得对该数据的封锁</li>
+<li>在释放一个封锁之后，事务不再申请和获得任何其他封锁</li>
+</ul>
+<p>先全部加锁 再逐个放锁 </p>
+<blockquote>
+<p>简述死锁和活锁的产生原因和解决方法</p>
+</blockquote>
+<p><strong>活锁</strong>：</p>
+<ul>
+<li><strong>原因</strong>：事务T1封锁了数据，T2等待；后续T3、T4等不断申请该数据，系统不断优先批准后来的请求，导致T2有可能永远处于等待状态 </li>
+<li><strong>解决</strong>：采用“先来先服务”的策略   </li>
+</ul>
+<p><strong>死锁</strong>：</p>
+<ul>
+<li><strong>原因</strong>：遵守两段锁协议的事务互为等待。例如T1封锁了R1，T2封锁了R2；随后T1请求R2并等待，T2请求R1也等待，形成相互等待永远无法结束的僵局 。</li>
+<li><strong>解决</strong>：分为预防、诊断与解除 。诊断可通过“超时法”或检测图中是否存在回路的“等待图法” ；解除的方法是选择一个处理死锁代价最小的事务进行撤消 </li>
+</ul>
+<blockquote>
+<p>什么是数据库的恢复?</p>
+</blockquote>
+<p>把数据库从错误状态恢复到某一个已知的正确状态（亦称为一致状态或完整状态）的功能</p>
+<blockquote>
+<p>数据库转储的意义是什么?比较各种数据转储方法</p>
+</blockquote>
+<p>建立冗余数据库来恢复</p>
+<p>即DBA定期地将整个数据库复制到磁带或另一个磁盘上保存起来的过程。这些备用的数据文本称为后备副本或后援副本</p>
+<blockquote>
+<p>什么是日志文件?为什么设立日志文件?登记日志文件时为什么必须先写日志文件，后写数据库?</p>
+</blockquote>
+<p>日志是用来记录事务对数据库的更新操作的文件</p>
+<p>设立它是为了在故障恢复时能够对已完成事务进行重做，对未完成事务进行撤销</p>
+<p>防止部分已提交数据存于缓冲区未写入数据库 导致基于日志的重做产生偏差</p>
+<blockquote>
+<p>数据允许过程中常见的故障有哪几类?各类故障如何恢复?</p>
+</blockquote>
+<ul>
+<li>系统故障<ul>
+<li>正向扫描日志文件，建立UNDO和REDO队列</li>
+<li>反向扫描日志文件，对每个UNDO事务的更新执行逆操作</li>
+<li>正向扫描日志文件，对每个REDO事务的更新重新执行</li>
+</ul>
+</li>
+<li>介质故障<ul>
+<li>DBA周期性地转储数据库</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>什么是数据库复制?它有什么用途?常用的复制手段有哪些?</p>
+</blockquote>
+<p>数据库镜像是 DBMS 自动把整个数据库或其中的关键数据复制到另一个磁盘上，并自动保证镜像数据与主数据的一致性</p>
+<ul>
+<li>DBMS自动把整个数据库或其中的关键数据复制到另一个磁盘上</li>
+<li>DBMS自动保证镜像数据与主数据的一致性</li>
+</ul>
+<blockquote>
+<p>什么是数据库镜像?它有什么用途?</p>
+</blockquote>
+<p>数据库镜像是 DBMS 自动把整个数据库或其中的关键数据复制到另一个磁盘上，并自动保证镜像数据与主数据的一致性</p>
+<ul>
+<li>出现介质故障时<ul>
+<li>DBMS自动利用镜像磁盘数据进行数据库的恢复，不需要关闭系统和重装数据库副本</li>
+</ul>
+</li>
+<li>没有出现故障时<ul>
+<li>可用于并发操作<ul>
+<li>一个用户对数据加排他锁修改数据</li>
+<li>其他用户可以读镜像数据库上的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">综合题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><strong>考虑下图所示的日志记录，假设开始时 A、B、C 的值都是 0；</strong> <img alt="img" src="https://p.ananas.chaoxing.com/star3/origin/3132d673eb0e805810bdba07aac23add.png" /></p>
+<blockquote>
+<p>① 如果系统故障发⽣在 14 之后，写出系统恢复后 A、B、C 的值。 </p>
+<p>② 如果系统故障发⽣在 12 之后，写出系统恢复后 A、B、C 的值。 </p>
+<p>③ 如果系统故障发⽣在 10 之后，写出系统恢复后 A、B、C 的值。 </p>
+<p>④ 如果系统故障发⽣在 9 之后，写出系统恢复后 A、B、C 的值。 </p>
+<p>⑤ 如果系统故障发⽣在 7 之后，写出系统恢复后 A、B、C 的值。 </p>
+<p>⑥ 如果系统故障发⽣在 5 之后，写出系统恢复后 A、B、C 的值。</p>
+</blockquote>
+<p>第一问</p>
+<p>回滚到13 此时 A被T1写为10 再被T3写为8 提交</p>
+<p>B被T2写为9 回滚到0 再被T3写为7 C被写为11</p>
+<p>A = 8 B = 7 C = 11</p>
+<p>第二问 </p>
+<p>之前只有T1完成了提交 此时 A = 10 C = 11 B = 0</p>
+<p>第三问到第五问 都是恢复到T1提交后的状态 答案一样 A = 10 B = 0 C = 11</p>
+<p>第六问 无人提交 A = 0 B = 0 C = 0</p>
+<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>考虑下图所⽰的⽇志记录：</strong></p>
+<p><img alt="img" src="https://p.ananas.chaoxing.com/star3/origin/f9d7082954b7e16b13d977575fb18751.png" /></p>
+<blockquote>
+<p>① 如果系统故障发⽣在 14 之后，说明哪些事务需要重做，哪些事务需要回滚。</p>
+<p>② 如果系统故障发⽣在 10 之后，说明哪些事务需要重做，哪些事务需要回滚。</p>
+<p>③ 如果系统故障发⽣在 9 之后，说明哪些事务需要重做，哪些事务需要回滚。</p>
+<p>④ 如果系统故障发⽣在 7 之后，说明哪些事务需要重做，哪些事务需要回滚。</p>
+</blockquote>
+<p>第一问 T1 T3 重做 T4回滚即可 </p>
+<p>第二问 T1重做 T3 T4回滚</p>
+<p>第三问 T1重做 T2 T3 T4回滚</p>
+<p>第四问 同第三问</p>
+<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>设T1,T2,T3是如下的3各事务。</strong></p>
+<div class="arithmatex">\[\begin{cases}T_1: A=A+2\\T_2: A=2A\\T_3: A=A^2\end{cases}\]</div>
+<p>设A的初值为0.</p>
+<p>（1）若这3个事务允许并行执行，则有多少可能的正确结果？请一一列举。</p>
+<p>（2）给出一个可串行化的调度，并给出执行结果。</p>
+<p>（3）给出一个非串行化的调度，并给出执行结果。</p>
+<p>（4）若这3个事务都遵守两段锁协议，给出一个不产生死锁的可串行化调度。</p>
+<p>（5）若这3个事务都遵守两段锁协议，给出一个产生死锁的调度。</p>
+<p>第一问</p>
+<p>231 321 可以得到 A = 0</p>
+<p>132 A = 8</p>
+<p>312 A = 4</p>
+<p>123 A = 16</p>
+<p>213 A  =4</p>
+<p>第二问 
+$$
+R_1(A) \;W_1(A)\;R_2(A) \;W_2(A)\;R_3(A) \;W_3(A)\A=16
+$$
+第三问
+$$
+R_1(A), R_2(A), W_1(A), W_2(A), R_3(A), W_3(A)\A = 0
+$$
+第四问</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(T_1\)</span>：获取X锁(A) <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(R_1(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(W_1(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> 释放X锁(A)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T_2\)</span>：获取X锁(A) <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(R_2(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(W_2(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> 释放X锁(A)</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T_3\)</span>：获取X锁(A) <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(R_3(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(W_3(A)\)</span> <span class="arithmatex">\(\rightarrow\)</span> 释放X锁(A)</p>
+</li>
+</ul>
+<p>第五问</p>
+<p>T1申请读 <span class="arithmatex">\(S_1(A)\)</span> </p>
+<p>T1申请读 <span class="arithmatex">\(S_2(A)\)</span></p>
+<p>T1申请写 <span class="arithmatex">\(X_1(A)\)</span> 等待<span class="arithmatex">\(S_2\)</span></p>
+<p>T2申请写 <span class="arithmatex">\(X_2(A)\)</span> 等待 <span class="arithmatex">\(S_1\)</span></p>
+<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p>今有三个事务的⼀个调度 r3(B) r1(A) w3(B) r2(B) r2(A) w2(B) r1(B) w1(A)，该调度是冲突可串⾏化的调度吗︖为什么︖</p>
+<p>不会</p>
+<p>梳理一下逻辑</p>
+<p>先T3读B T1读A </p>
+<p>再T3写B 完成流程</p>
+<p>再T2读B T2读A</p>
+<p>此时T2写B 完成流程 </p>
+<p>再T1读B T1写A</p>
+<p>A的脏数据没被T2完成写 在串行中也会被及时覆盖 所以不会产生冲突</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

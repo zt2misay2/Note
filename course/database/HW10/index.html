@@ -1,0 +1,1215 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://note.zt2misay2.cn/course/database/HW10/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>第十周作业 - Misay's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Misay&#39;s Note" class="md-header__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Misay's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第十周作业
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study/" class="md-tabs__link">
+          
+  
+  
+  Study
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../daily/" class="md-tabs__link">
+          
+  
+  
+  Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Misay&#39;s Note" class="md-nav__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Misay's Note
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../past/computation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机组成原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统及安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随笔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../daily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念简答
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        综合应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">第十周作业<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概念简答<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>简述数据库设计的基本步骤</p>
+</blockquote>
+<p>分为</p>
+<ul>
+<li>
+<p>需求分析
+    自顶向下</p>
+</li>
+<li>
+<p>概念结构的设计
+    自底向上</p>
+</li>
+<li>逻辑结构的设计
+    E-R图 -&gt; 一般数据模型 -&gt; 特定DBMS数据模型 -&gt; 优化数据模型 -&gt; 设计用户子模式</li>
+<li>物理结构的设计
+    确定物理结构并进行评价</li>
+<li>数据库实施</li>
+<li>数据库运行与维护</li>
+</ul>
+<blockquote>
+<p>简述需求分析阶段的任务和方法</p>
+</blockquote>
+<ul>
+<li>
+<p>任务</p>
+<p>自顶向下地进行分析，充分了解原系统工作概况，明确系统的各种需求（信息要求、处理要求、安全性与完整性要求），然后在此基础上确定新系统的功能</p>
+</li>
+<li>
+<p>方法/步骤</p>
+<ul>
+<li>调查组织机构</li>
+<li>调查各部门的业务活动情况</li>
+<li>明确用户需求</li>
+<li>计算机应用现状</li>
+<li>确定新系统的边界</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>什么是数据库的逻辑结构设计?简述其设计步骤</p>
+</blockquote>
+<ul>
+<li>
+<p>概念
+    把概念结构阶段设计好的基本E-R图转换为与选用DBMS产品所支持的数据模型相符合的逻辑结构</p>
+</li>
+<li>
+<p>设计步骤
+    E-R图 -&gt; 一般数据模型 -&gt; 特定DBMS数据模型 -&gt; 优化数据模型 -&gt; 设计用户子模式</p>
+</li>
+</ul>
+<blockquote>
+<p>规范化对数据库设计有什么指导意义?</p>
+</blockquote>
+<ul>
+<li>提供理论基础</li>
+<li>减少冗余与异常</li>
+<li>提供模式分解步骤及其标准</li>
+<li>确保设计的等价性</li>
+</ul>
+<blockquote>
+<p>简述将E-R图转换为关系模型的一般规则</p>
+</blockquote>
+<ul>
+<li>基础结构的对应<ul>
+<li><strong>实体</strong>转换为<strong>表</strong></li>
+<li><strong>简单属性</strong>转换为表的<strong>列</strong></li>
+<li><strong>复合属性</strong>转换为组成该复合属性的<strong>简单属性集</strong></li>
+<li><strong>多值属性</strong>转换为<strong>表和外键</strong></li>
+<li><strong>关键字属性</strong>转换为<strong>主键</strong></li>
+<li><strong>1:1 或 1:N 联系</strong>通常通过<strong>外键</strong>隐含地表示</li>
+<li><strong>M:N 联系</strong>转换为<strong>联系表和两个外键</strong></li>
+<li><strong>n元联系</strong>转换为<strong>联系表和n个外键</strong></li>
+</ul>
+</li>
+<li>遵循9步算法<ul>
+<li>Step 1：强实体的转换</li>
+<li>Step 2：仅参与一个1:1联系的弱实体的转换</li>
+<li>Step 3：参与1:N或M:N联系的弱实体的转换</li>
+<li>Step 4：1:1 联系的转换</li>
+<li>Step 5：1:N 联系的转换</li>
+<li>Step 6：N元联系（包括M:N联系）</li>
+<li>Step 7：多值属性的转换</li>
+<li>Step 8：具有强制参与且不相交的超类/子类联系的转换</li>
+<li>Step 9：具有相交子类或可选参与且不相交的超类/子类联系的转换</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">综合应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>为下面的描述建立ER图:</p>
+<ul>
+<li>一个公司有四个部门，每个部门属于一个公司。</li>
+<li>每个部门有一或多名雇员，每名雇员在一个部门工作。</li>
+<li>每名雇员可能有一名或多名家属，每个家属属于一名雇员。</li>
+<li>每名雇员可能有工作经历</li>
+</ul>
+</blockquote>
+<p>注意以下 家属和工作经历是弱实体 用虚线矩形画即可</p>
+<p><img alt="image-20260506150158785" src="image-20260506150158785.png" /></p>
+<blockquote>
+<p>将ER图转换为关系模式，并指明所有候选键、主键和外键</p>
+</blockquote>
+<p><strong>公司 (Company)</strong></p>
+<ul>
+<li>关系模式：公司 ( <strong>公司编号</strong>, 公司名称... )</li>
+</ul>
+<p><strong>部门 (Department)</strong></p>
+<ul>
+<li>关系模式：部门 ( <strong>部门编号</strong>, 部门名称..., <strong>*公司编号*</strong> )</li>
+<li>外键：<code>公司编号</code> 引用自「公司」表。</li>
+</ul>
+<p><strong>雇员 (Employee)</strong></p>
+<ul>
+<li>关系模式：雇员 ( <strong>雇员编号</strong>, 姓名..., <strong>*部门编号*</strong> )</li>
+<li>外键：<code>部门编号</code> 引用自「部门」表。</li>
+</ul>
+<p><strong>家属 (Dependent)</strong> —— <em>弱实体转换</em></p>
+<ul>
+<li>关系模式：家属 ( <strong>*雇员编号*, 家属编号/姓名</strong>, 与雇员关系... )</li>
+<li>主键：<code>(雇员编号, 家属编号/姓名)</code> 构成的复合主键。</li>
+<li>外键：<code>雇员编号</code> 引用自「雇员」表。</li>
+</ul>
+<p><strong>工作经历 (Work_Experience)</strong> —— <em>弱实体转换</em></p>
+<ul>
+<li>关系模式：工作经历 ( <strong>*雇员编号*, 经历序号</strong>, 开始时间, 结束时间, 公司名... )</li>
+<li>主键：<code>(雇员编号, 经历序号)</code> 构成的复合主键。</li>
+<li>外键：<code>雇员编号</code> 引用自「雇员」表。</li>
+</ul>
+<blockquote>
+<p>现在需要为一家从事IT培训的公司建立一个概念数据模型，来满足该公司的数据需求。
+公司有30名讲师，每期培训课程可以有100名受训者。该公司提供五门高级技术课程，每门课程由一个培训组进行培训，该培训组有两名或更多讲师。每名讲师最多只能同时分派到两个培训组中或分派从事研究工作。每名受训者在每期培训中都要学习一门高级技术课程。
+请完成下列任务:
+(1)确定该公司的主要实体类型
+(2)确定主要联系类型和每个联系的多样性，声明对数据所做的假设。
+(3)使用(1)和(2)中得到的结果，画出表示该公司数据需求的ER图。</p>
+</blockquote>
+<ol>
+<li>
+<p>主要实体</p>
+<ul>
+<li>公司</li>
+<li>培训课程/技术课程</li>
+<li>培训组</li>
+<li>讲师</li>
+<li>受训者</li>
+</ul>
+<p>均为强实体</p>
+</li>
+<li>
+<p>数据联系</p>
+<ul>
+<li>公司提供课程 </li>
+<li>课程和培训组一一对应</li>
+<li>培训组分配讲师</li>
+<li>受训者参与课程</li>
+</ul>
+</li>
+<li>
+<p>都在一期培训中 建立如下E-R图
+    关键在于讲师和培训组的数量对应 </p>
+<ul>
+<li>一个讲师可以对应0 1 2个培训组</li>
+<li>一个培训组可以有 2 ~ * 讲师</li>
+</ul>
+</li>
+</ol>
+<p><img alt="image-20260506152040063" src="image-20260506152040063.png" /></p>
+<blockquote>
+<p>将ER图转换为关系模式，并指明所有候选键、主键和外键</p>
+</blockquote>
+<p><strong>课程 (Course)</strong></p>
+<ul>
+<li>关系模式：课程 ( <strong>课程编号</strong>, 课程名称, )</li>
+</ul>
+<p><strong>培训组 (Training_Group)</strong></p>
+<ul>
+<li>关系模式：培训组 ( <strong>培训组编号</strong>, <strong>*课程编号*</strong> )</li>
+<li>外键：<code>课程编号</code> 引用自「课程」表（处理课程与培训组的 1:1 或 1:N 联系）。</li>
+</ul>
+<p><strong>受训者 (Trainee)</strong></p>
+<ul>
+<li>关系模式：受训者 ( <strong>受训者编号</strong>, 姓名, <strong>*学习课程编号*</strong> )</li>
+<li>外键：<code>学习课程编号</code> 引用自「课程」表（每名受训者学习一门课程 N:1）。</li>
+</ul>
+<p><strong>讲师 (Instructor)</strong></p>
+<ul>
+<li>关系模式：讲师 ( <strong>讲师编号</strong>, 姓名 )</li>
+</ul>
+<p><strong>培训分配 (Group_Instructor_Allocation)</strong> —— <em>处理讲师与培训组的 M:N 联系</em></p>
+<ul>
+<li>关系模式：培训分配 ( <strong>*讲师编号*, *培训组编号*</strong> )</li>
+<li>主键：<code>(讲师编号, 培训组编号)</code> 构成的复合主键。</li>
+<li>外键：<code>讲师编号</code> 引用自「讲师」表，<code>培训组编号</code> 引用自「培训组」表。</li>
+</ul>
+<blockquote>
+<p>U.R.Sick是一家综合医院的管理员。他希望为医院的门诊诊所建立一个数据库，患者可以在门诊诊所接受紧急治疗。当患者第一次到达时，我们需要记录一些基本信息，例如姓名，地址和电话号码。此外，我们需要了解该患者有哪些保险公司的服务。来这家诊所的患者通常会有一家以上的保险公司的服务。为了协助计费，我们需要保留我们的患者使用的保险公司列表，以便我们拥有每家保险公司的公司名称，电话号码和联系人姓名。由于诊所只是紧急治疗，我们需要跟踪患者的家庭医生，以便我们向他们发送信息。每位患者都有一位家庭医生。为了协助联系家庭医生，我们需要维护一份医生名单，其中包括医生的姓名，手机号码和办公室电话号码。
+请为上面的描述建立ER图</p>
+</blockquote>
+<p>先梳理实体</p>
+<ul>
+<li>
+<p>患者</p>
+</li>
+<li>
+<p>保险公司</p>
+</li>
+<li>
+<p>家庭医生</p>
+</li>
+</ul>
+<p>然后是实体之间的关联</p>
+<ul>
+<li>患者购买保险公司服务 1 患者 - 1 ..*保险公司</li>
+<li>患者带有家庭医生 1..* 患者 - 1 家庭医生</li>
+</ul>
+<p>最后是实体的属性</p>
+<ul>
+<li>患者拥有 姓名 地址 电话号码</li>
+<li>保险公司拥有 公司名称 电话号码 联系人姓名</li>
+<li>家庭医生拥有 医生姓名 手机号码 办公室电话号码</li>
+</ul>
+<p>整理E-R图</p>
+<p><img alt="image-20260506153726729" src="image-20260506153726729.png" /></p>
+<blockquote>
+<p>将ER图转换为关系模式，并指明所有候选键、主键和外键</p>
+</blockquote>
+<p><strong>家庭医生 (Family_Doctor)</strong></p>
+<ul>
+<li>关系模式：家庭医生 ( <strong>医生编号</strong>, 医生姓名, 手机号码, 办公室电话号码 )</li>
+</ul>
+<p><strong>患者 (Patient)</strong></p>
+<ul>
+<li>关系模式：患者 ( <strong>患者编号</strong>, 姓名, 地址, 电话号码, <strong>*家庭医生编号*</strong> )</li>
+<li>外键：<code>家庭医生编号</code> 引用自「家庭医生」表（处理每位患者都有一位家庭医生 1:N）。</li>
+</ul>
+<p><strong>保险公司 (Insurance_Company)</strong></p>
+<ul>
+<li>关系模式：保险公司 ( <strong>公司编号</strong>, 公司名称, 电话号码, 联系人姓名 )</li>
+</ul>
+<p><strong>患者保险 (Patient_Insurance)</strong> —— <em>处理 M:N 联系</em></p>
+<ul>
+<li>关系模式：患者保险 ( <strong>*患者编号*, *公司编号*</strong> )</li>
+<li>主键：复合主键 <code>(患者编号, 公司编号)</code>。</li>
+<li>外键：<code>患者编号</code> 引用「患者」表，<code>公司编号</code> 引用「保险公司」表</li>
+</ul>
+<blockquote>
+<p>考虑某个 IT 公司的数据库信息:
+(1) 部门具有部门编号、部门名称、办公地点等属性;
+(2) 部门员工具有员工编号、姓名、级别等属性，员工只在一个部门工作;
+(3) 每个部门有唯一一个部门员工作为部门经理;
+(4) 实习生具有实习编号、姓名、年龄等属性，只在一个部门实习;
+(5) 项目具有项目编号、项目名称、开始日期、结束日期等属性;
+(6) 每个项目由一名员工负责，由多名员工、实习生参与;
+(7) 一名员工只负责一个项目，可以参与多个项目，在每个项目具有工作时间比;
+(8) 每个实习生只参与一个项目。
+画出 E-R 图，并将 E-R 图转换为关系模型(包括关系名、属性名、码和完整性约
+束条件)</p>
+</blockquote>
+<p>先梳理实体</p>
+<ul>
+<li>部门</li>
+<li>部门员工</li>
+<li>实习生</li>
+<li>项目</li>
+</ul>
+<p>部门经历和项目负责人完全可以用一个关系来表述</p>
+<p>然后是实体关系</p>
+<ul>
+<li>部门有多个员工</li>
+<li>
+<p>部门有唯一员工经理</p>
+</li>
+<li>
+<p>部门有多个实习生</p>
+</li>
+<li>项目有唯一负责员工</li>
+<li>项目由多名员工 实习生参与</li>
+<li>员工可以参与多个项目</li>
+<li>实习生只参与一个项目</li>
+</ul>
+<p>员工参与项目 具备关系属性 参与时间比</p>
+<p>实体属性</p>
+<ul>
+<li>
+<p>部门具有部门编号、部门名称、办公地点等属性</p>
+</li>
+<li>
+<p>部门员工具有员工编号、姓名、级别等属性</p>
+</li>
+<li>
+<p>实习生具有实习编号、姓名、年龄等属性</p>
+</li>
+<li>
+<p>项目具有项目编号、项目名称、开始日期、结束日期等属性</p>
+</li>
+</ul>
+<p><img alt="image-20260506155356136" src="image-20260506155356136.png" /></p>
+<p><strong>部门 (Department)</strong></p>
+<ul>
+<li>关系模式：部门 ( <strong>部门编号</strong>, 部门名称, 办公地点, <strong>*经理编号*</strong> )</li>
+<li>外键：<code>经理编号</code> 引用自「员工」表的 <code>员工编号</code>（处理 1:1 的&lt;管理&gt;联系）。</li>
+</ul>
+<p><strong>员工 (Employee)</strong></p>
+<ul>
+<li>关系模式：员工 ( <strong>员工编号</strong>, 姓名, 级别, <strong>*部门编号*</strong> )</li>
+<li>外键：<code>部门编号</code> 引用自「部门」表（处理 1:N 的&lt;工作于&gt;联系）。</li>
+</ul>
+<p><strong>实习生 (Intern)</strong></p>
+<ul>
+<li>关系模式：实习生 ( <strong>实习编号</strong>, 姓名, 年龄, <strong><em>部门编号*</em>*, </strong><em>参与项目编号*</em>* )</li>
+<li>外键1：<code>部门编号</code> 引用自「部门」表。</li>
+<li>外键2：<code>参与项目编号</code> 引用自「项目」表的 <code>项目编号</code>（处理实习生只参与一个项目 N:1）。</li>
+</ul>
+<p><strong>项目 (Project)</strong></p>
+<ul>
+<li>关系模式：项目 ( <strong>项目编号</strong>, 项目名称, 开始日期, 结束日期, <strong>*负责人编号*</strong> )</li>
+<li>外键：<code>负责人编号</code> 引用自「员工」表的 <code>员工编号</code>（处理 1:1 的&lt;负责&gt;联系）。</li>
+</ul>
+<p><strong>员工项目参与 (Project_Participation)</strong> —— <em>处理 M:N 联系及联系上的属性</em></p>
+<ul>
+<li>关系模式：员工项目参与 ( <strong>*员工编号*, *项目编号*</strong>, 参与时间比 )</li>
+<li>主键：复合主键 <code>(员工编号, 项目编号)</code>。</li>
+<li>外键：<code>员工编号</code> 引用「员工」表，<code>项目编号</code> 引用「项目」表</li>
+</ul>
+<blockquote>
+<p>有一个记录球队、队员和球迷信息的数据库，包括:
+(1) 对于每个球队，有球队的名字、队员、队长(队员之一)及队服的颜色。
+(2) 对于每个队员，有其姓名和所属球队。
+(3) 对于每个球迷，有其姓名、最喜爱的球队、最喜爱的队员及最喜爱的颜色。
+用 E-R 图画出该数据库的信息模型，并将 E-R 模型转换成关系模型。</p>
+</blockquote>
+<p>实体</p>
+<ul>
+<li>球队</li>
+<li>队员</li>
+<li>球迷</li>
+</ul>
+<p>实体关系</p>
+<ul>
+<li>球队含有队员</li>
+<li>球队含有球迷</li>
+<li>球队含有队长</li>
+</ul>
+<p>实体属性</p>
+<ul>
+<li>
+<p>每个球队，有球队的名字、队员、队长(队员之一)及队服的颜色</p>
+</li>
+<li>
+<p>每个队员，有其姓名和所属球队</p>
+</li>
+<li>
+<p>每个球迷，有其姓名、最喜爱的球队、最喜爱的队员及最喜爱的颜色</p>
+</li>
+</ul>
+<p><img alt="image-20260506160807727" src="image-20260506160807727.png" /></p>
+<p><strong>球队 (Team)</strong></p>
+<ul>
+<li>关系模式：球队 ( <strong>球队ID</strong>, 名字, 队服颜色, <strong>*队长ID*</strong> )</li>
+<li>外键：<code>队长ID</code> 引用自「队员」表的 <code>队员ID</code>（处理队长 1:1 联系）。</li>
+</ul>
+<p><strong>队员 (Player)</strong></p>
+<ul>
+<li>关系模式：队员 ( <strong>队员ID</strong>, 姓名, <strong>*所属球队ID*</strong> )</li>
+<li>外键：<code>所属球队ID</code> 引用自「球队」表的 <code>球队ID</code>（处理球队包含队员 1:N 联系）。</li>
+</ul>
+<p><strong>球迷 (Fan)</strong></p>
+<ul>
+<li>关系模式：球迷 ( <strong>球迷ID</strong>, 姓名, 最喜爱的颜色, <strong><em>最喜爱球队ID*</em>*, </strong><em>最喜爱队员ID*</em>* )</li>
+<li>外键1：<code>最喜爱球队ID</code> 引用自「球队」表（处理球迷喜爱球队 N:1 联系）。</li>
+<li>外键2：<code>最喜爱队员ID</code> 引用自「队员」表（处理球迷喜爱队员 N:1 联系）</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

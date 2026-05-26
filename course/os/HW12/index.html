@@ -1,0 +1,1346 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://note.zt2misay2.cn/course/os/HW12/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>虚拟存储 - Misay's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Misay&#39;s Note" class="md-header__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Misay's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              虚拟存储
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study/" class="md-tabs__link">
+          
+  
+  
+  Study
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../daily/" class="md-tabs__link">
+          
+  
+  
+  Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Misay&#39;s Note" class="md-nav__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Misay's Note
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../past/computation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机组成原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统及安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随笔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../daily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念梳理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概念梳理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        理论基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        请求分页存储
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按需装入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缺页中断
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面替换算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="页面替换算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳替换(OPT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        先进先出(FIFO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最久未使用(LRU)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二次机会(SCR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        改进时钟
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面管理策略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="页面管理策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面装入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面清除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面分配&amp;替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作集模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        抖动
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="抖动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        产生原由
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        抖动的发现与预防
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        作业
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">虚拟存储<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概念梳理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">理论基础<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>程序存在<strong>局部性原理</strong>
+    作业在执行中只需存入少部分必要信息到主存中<ul>
+<li>时间局部性</li>
+<li>空间局部性</li>
+<li>顺序局部性</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>虚拟存储器（也称为虚拟内存）是指具有请求调入和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统</p>
+</blockquote>
+<p>特性：</p>
+<ul>
+<li>离散性</li>
+<li>多次性</li>
+<li>对换性</li>
+<li>虚拟性</li>
+</ul>
+<h3 id="_5">请求分页存储<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>在分页存储管理的基础上增加了请求调页和页面置换功能</p>
+</blockquote>
+<p>结构基础</p>
+<ul>
+<li>MMU</li>
+<li>页表</li>
+</ul>
+<hr />
+<p>逻辑地址的定义</p>
+<p><img alt="image-20260526100521907" src="image-20260526100521907.png" /></p>
+<ul>
+<li>
+<p><strong>存在位：</strong> 最重要的一个状态，用来表示该页当前到底是在内存里（1），还是在磁盘上（0）  </p>
+</li>
+<li>
+<p><strong>访问字段：</strong> 记录这个页面最近被访问的频率或时间。这是留给后面的“页面替换算法”做参考用的（比如找出哪个页面最不常使用）</p>
+</li>
+<li>
+<p><strong>修改位：</strong> 记录这个页面调入内存后，有没有被修改过。如果修改过（1），淘汰时必须把新数据写回外存；如果没有修改过（0），直接扔掉就行，不用白费时间写磁盘 </p>
+</li>
+<li>
+<p><strong>外存地址：</strong> 明确指出这个页面在硬盘上的具体物理位置，方便操作系统去捞它</p>
+</li>
+</ul>
+<hr />
+<p>执行流程</p>
+<ul>
+<li>按需装入
+    运行作业时只装入部分需要页面</li>
+<li>缺页中断
+    MMU查询到所需页面不在内存中，中断作业，申请OS调页面回来(页面访址)</li>
+<li>页面置换
+    内存已满后，淘汰旧页面填入新页面(页面替换算法)</li>
+</ul>
+<hr />
+<h3 id="_6">按需装入<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>这里的按需并非某种提前规划，CPU按照PC的变化规律申请地址访问请求，每个请求都会被MMU审计，根据存在位的信息选择正常调页，还是缺页中断。更多的是一种被动化的执行思路流程。</p>
+<h3 id="_7">缺页中断<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20260526101042531" src="image-20260526101042531.png" /></p>
+<ul>
+<li>CPU申请访存，MMU得到虚拟地址</li>
+<li>MMU发现VA的的存在位为0，页面不在内存，触发缺页中断</li>
+<li>MMU申请OS介入，去外存寻找备份</li>
+<li>OS再在内存寻找空闲页框，如果不存在，则需要按照替换算法进行更新</li>
+<li>调入新页面</li>
+<li>更新对应的页表信息</li>
+<li>返回中断指令，继续执行</li>
+</ul>
+<blockquote>
+<p>如何区分缺页中断和一般中断？</p>
+</blockquote>
+<p>可以从中断的发生时机，一条指令能产生的中断个数/中断频率，中断返回后的执行情况来进行区分。</p>
+<hr />
+<h3 id="_8">地址变换<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20260526102151952" src="image-20260526102151952.png" /></p>
+<p>当CPU发出对于某组VA的访问请求</p>
+<ul>
+<li>
+<p>Part1 MMU</p>
+<ul>
+<li>MMU读取VA，将地址拆分为页号(PN)和页内偏移(Offset)</li>
+</ul>
+</li>
+<li>
+<p>Part2 TLB</p>
+<p>MMU根据页号(PN)去查TLB</p>
+<ul>
+<li>TLB Hit
+    从TLB中查到物理页框号，和偏移拼接，读到物理地址(PA)</li>
+<li>TLB Miss
+    去访存，查页表</li>
+</ul>
+</li>
+<li>
+<p>Part3 PT
+    MMU根据页号查页表项</p>
+<ul>
+<li>存在位为1，PT Hit<ul>
+<li>MMU取得物理页框号</li>
+<li>MMU把页表项更新到TLB，如果TLB已满，则按照替换算法更新</li>
+<li>拼接页框号与偏移，得到物理地址</li>
+</ul>
+</li>
+<li>存在位为0，PT Miss<ul>
+<li>缺页中断
+    这里不是不知道地址，页表的外存地址都是如实记录的，只是不在当前的主存中，需要去外存提取，类似一种备份</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Part4 OS
+    发生缺页中断，OS介入<ul>
+<li>停止CPU作业，保存寄存器等现场状态</li>
+<li>根据页表项的外存地址，去外存读取相关需要的数据</li>
+<li>找到需要的页，调回内存，如果内存已满，根据替换算法更新。如果要淘汰的页被修改，则在硬盘中做好对应的备份。</li>
+<li>把新页装入物理块，修改页表项，更新TLB</li>
+<li>恢复CPU</li>
+</ul>
+</li>
+</ul>
+<p>如图</p>
+<p><img alt="image-20260526103255404" src="image-20260526103255404.png" /></p>
+<h3 id="_9">页面替换算法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="opt">最佳替换(OPT)<a class="headerlink" href="#opt" title="Permanent link">&para;</a></h4>
+<p>预测未来，挑选出<strong>将来最长时间内不再被访问的页面</strong>予以淘汰。</p>
+<p>理论最优解</p>
+<h4 id="fifo">先进先出(FIFO)<a class="headerlink" href="#fifo" title="Permanent link">&para;</a></h4>
+<p>最早进入的页面最先被替换出去。</p>
+<p>给定序列的时候，分配的物理框越多，缺页情况反而越严重(<strong>Belady</strong>)。</p>
+<h4 id="lru">最久未使用(LRU)<a class="headerlink" href="#lru" title="Permanent link">&para;</a></h4>
+<p>最久没有访问的页进行替换，重点在实现思路。</p>
+<ul>
+<li><strong>基于计数器：</strong> 为每个页表项配一个时钟计数器，每次访问更新时间，缺页时挑计数值最小的 </li>
+<li><strong>基于栈：</strong> 维护一个特殊栈，最近访问的页面抽出来压入栈顶，栈底永远是最久未使用的页面</li>
+</ul>
+<h4 id="scr">二次机会(SCR)<a class="headerlink" href="#scr" title="Permanent link">&para;</a></h4>
+<p>与FIFO类似，但是提供了一次缓冲的机会</p>
+<p>Clock是SCR的实现实例之一</p>
+<ul>
+<li>
+<p>为每个页表项增加一个<strong>引用位 (Reference Bit / R 位)</strong> 。页面一被访问，硬件就把 R 位置为 1</p>
+</li>
+<li>
+<p>将所有页面连成一个<strong>循环队列（像时钟表面）</strong>，设一个替换指针</p>
+</li>
+<li>
+<p><strong>缺页挑选过程：</strong> 指针顺时针扫描</p>
+<ul>
+<li>
+<p>如果遇到 R=1，说明最近用过，暂时先不将其替换，将其置为 0，然后指针继续往下找</p>
+</li>
+<li>
+<p>如果遇到 R=0，说明最近没用过，直接淘汰该页</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_10">改进时钟<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Clock 算法只看了“用没用过”，但忽略了一个致命的性能问题——<strong>修改过的页面写回磁盘极其耗时</strong> 。改进型 Clock 把<strong>引用位 (R)</strong> 和<strong>修改位 (M)</strong> 结合起来考虑</p>
+</blockquote>
+<p>按照排除出去的优先级 <strong>从高到低</strong> 为</p>
+<ol>
+<li><code>R=0, M=0</code>：最近没用过，也没修改过。（最优替罪羊，直接扔掉就行）   </li>
+<li><code>R=0, M=1</code>：最近没用过，但被修改过。（次优，踢之前得费事写回硬盘）   </li>
+<li><code>R=1, M=0</code>：最近用过，但没修改过。（还要用，先留着）   </li>
+<li><code>R=1, M=1</code>：最近用过，且被修改过。（最宝贵，千万别动）</li>
+</ol>
+<p>扫描挑选顺序</p>
+<ol>
+<li>第一轮找 <code>R=0, M=0</code>，不改变 R 位 。  </li>
+<li>如果找不到，第二轮找 <code>R=0, M=1</code>，同时<strong>把沿途所有页面的 R 位置 0</strong>（给大家降级，表示没扫到） 。  </li>
+<li>如果还找不到，就退回到起点，重复第一轮、第二轮，直到找到为止</li>
+</ol>
+<p>还有LFU MFU等</p>
+<h3 id="_11">页面管理策略<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="_12">页面装入<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>请求式调度
+    只在每轮请求访问VA的时候再去查看页面情况，但是无法预防缺页</li>
+<li>预调式调度
+    基于局部性原理，提前分配几组页面到内存，减少缺页情况、但可能存在更多的浪费</li>
+</ul>
+<h4 id="_13">页面清除<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li>请求式清除
+    只清洗被替换算法，例如LRU等选中的页面</li>
+<li>预清洗
+    操作系统会在系统比较空闲的时候，或者在后台，提前成批地把修改过的页面写回磁盘，把它们洗干净（清零修改位） 。等到需要替换时，发现它们已经是干净的了，直接丢弃即可，大大加快了替换速度</li>
+</ul>
+<h4 id="_14">页面分配&amp;替换<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ul>
+<li>固定分配 + 局部替换
+    每个进程分得的页框数不变，发生缺页中断，只能从该进程的页面中选页替换，保证进程的页框总数不变</li>
+<li>可变分配 + 全局替换
+    每个进程分配一定数目页框，OS保留若干空闲页框
+    进程发生缺页中断时，从系统空闲页框中选一个给进程，这样产生缺页中断进程的主存空间会逐渐增大，有助于减少系统的缺页中断次数
+    系统拥有的空闲页框耗尽时，会从主存中选择一页淘汰，该页可以是主存中任一进程的页面，这样又会使那个进程的页框数减少，缺页中断率上升</li>
+<li>可变分配 + 局部替换
+    新进程装入主存时，根据应用类型、程序要求，分配给一定数目页框
+    产生缺页中断时，从该进程驻留集中选一个页面替换
+    不时重新评价进程的分配，增加或减少分配给进程的页框以改善系统性能</li>
+</ul>
+<h3 id="_15">工作集模型<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>一个进程在当前时段正在使用的页框集合 定义为工作集</p>
+</blockquote>
+<ul>
+<li>工作集算法</li>
+</ul>
+<h3 id="_16">抖动<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>由于频繁缺页，导致运行进程的大部分时间都用于页面的换入/换出，而几乎不能完成任何有效的工作，则称此进程处于抖动（Thrashing）状态。抖动又称为颠簸、颤动</p>
+</blockquote>
+<h4 id="_17">产生原由<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<ul>
+<li>进程分配物理块过少</li>
+<li>替换算法不当</li>
+<li>全局替换</li>
+<li>进程局部性差</li>
+</ul>
+<h4 id="_18">抖动的发现与预防<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ul>
+<li>全局范围技术</li>
+<li>L = S</li>
+<li>利用缺页率</li>
+<li>平均缺页率</li>
+</ul>
+<h2 id="_19">作业<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20260526111708542" src="image-20260526111708542.png" /></p>
+<p>64KB地址空间，按字节编址即 <span class="arithmatex">\(64K\rightarrow2^6\times2^{10}=2^{16}\)</span>  16位地址空间</p>
+<p>页的大小为1KB 那么页内偏移是10位 页框号需要 6位 策略是固定分配局部替换</p>
+<ol>
+<li>17CA -&gt; <code>0001 0111 1100 1010</code> 页号取高6位 <code>000101</code> 为5</li>
+<li>固定存在4组页框 我们按照顺序排列 从进入的先到后排序 当前对应的页号应当是 0 3 2 1 在260时刻，访问了页号为5的情况，触发缺页中断，按照FIFO，移除页号0的内容，塞入页号5的内容，对应页框号为7，拼接得到物理地址为 <code>000111 1111 0010 10</code>  即1ECAH因为局部替换原则，这里的页框号是不会变化的</li>
+<li>按照CLOCK算法，在260时刻，从2号页开始搜，因为0123的访问位都是1，那么置0后一定会回到2号页，对应页框为2 物理地址为 <code>000010 1111 0010 10</code> 即 0BCAH</li>
+</ol>
+<p><img alt="image-20260526112541278" src="image-20260526112541278.png" /></p>
+<p>VA为16位，页面大小为4KB 字节编址下，页内偏移为12为，故而页号占4位 0~15</p>
+<p>2362H = <code>0010 0011 0110 0010</code> 页号为2  先看TLB，TLB为空，看PT，PT命中，访存一次TLB，PT和主存两次访存，成功命中，用时210ns</p>
+<p>1565H  = <code>0001 0101 0110 0101</code> 页号为1 看TLB，TLB为空，再看PT，PT缺失，触发缺页中断，由LRU算法，页号2刚刚访问过，故而更新页号为0处的信息，更新页号1到页框101H，用时一次TLB访问，2次访问内存，一次缺页中断，缺页中断后重新访问TLB,总用时 1e8 + 220ns 最终物理地址为 <code>0001 0000 0001 0101 0110 0101</code> 101565H</p>
+<p>25A5H = <code>0010 0101 1010 0101</code> 页号为2 看TLB，存在页框号，TLB命中用时一次TLB和一次访存，110ns</p>
+<p><img alt="image-20260526114416469" src="image-20260526114416469.png" /></p>
+<p>首先 驻留集是不固定的，但是每5个Tick就会进行一次动态的Flush</p>
+<p>起初，驻留集为空，页框链为32-&gt;15-&gt;21-&gt;41</p>
+<p>从0开始扫描，那么更新时刻是5 10 15 ...</p>
+<ul>
+<li>访问&lt;1,1&gt; 页号1不在驻留集，分配一个32页框到页表，得到 1&lt;-&gt;32 页框链 15-&gt;21-&gt;41</li>
+<li>访问&lt;3,2&gt; 页号3不在驻留集，分配15 。 3&lt;-&gt;15 页框链 21-&gt;41</li>
+<li>访问&lt;0,4&gt; 页号0不在驻留集，分配21。0&lt;-&gt;21 页框链41</li>
+<li>tick = 5 驻留集没有要Flush的</li>
+<li>访问&lt;0,6&gt; 页号0在驻留集，重新访问页框21</li>
+<li>tick = 10 驻留集中页号1 3都没访问，Flush页框链尾 41-&gt;32-&gt;15</li>
+<li>访问&lt;1,11&gt; 页号1不在驻留集，但在页框链，得到41-&gt;15 ; 1&lt;-&gt;32</li>
+<li>访问&lt;2,14&gt;页号2不在驻留集，不在页框链，得到15；2&lt;-&gt;41</li>
+<li>最终 在Tick14 驻留集情况 1&lt;-&gt;32 2&lt;-&gt;41 0&lt;-&gt;21 页框链 15</li>
+<li>使用时间局部性好的，有页框链，能及时缓冲最近访问的页</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
