@@ -9,6 +9,11 @@ nav:
       - 数据库系统及安全: course/database/index.md
       - 人工智能: course/ai/index.md
       - 操作系统: course/os/index.md
+      - 算法设计与分析:
+          - 课程主页: course/algorithm/index.md
+          - 算法概念和基础: course/algorithm/lect1.md
+      - 计算机网络: course/network/index.md
+
   - Study:
       - Overview: study/index.md
       - 随笔: study/essays/index.md
