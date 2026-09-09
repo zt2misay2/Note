@@ -1,0 +1,1536 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://note.zt2misay2.cn/course/os/HW13/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>HW13 - Misay's Note</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Misay&#39;s Note" class="md-header__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Misay's Note
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HW13
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study/" class="md-tabs__link">
+          
+  
+  
+  Study
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../daily/" class="md-tabs__link">
+          
+  
+  
+  Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Misay&#39;s Note" class="md-nav__button md-logo" aria-label="Misay's Note" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Misay's Note
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../past/computation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机组成原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统及安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法设计与分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法设计与分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/lect1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法概念和基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study/essays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随笔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../daily/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念梳理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概念梳理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统结构与视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件存储空间分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空闲存储空间管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件共享
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件共享">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        硬链接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        符号链接/软链接
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘存储
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁盘存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概念梳理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概念梳理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        存储结构概述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘调度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘管理与优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘容错技术
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>HW13</h1>
+
+<h2 id="_1">文件系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">概念梳理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">文件系统结构与视图<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>分层设计结构：逻辑文件系统层 -&gt; 文件组织模块层 -&gt; 基本文件系统层 -&gt;  I/O 控制层 </li>
+</ul>
+<p><img alt="image-20260609110008239" src="image-20260609110008239.png" /></p>
+<ul>
+<li>数据结构：在磁盘上（盘上结构）包含引导控制块、卷控制块（超级块）、目录结构和文件控制块（FCB/inode） 。</li>
+<li>内存结构：安装表、目录结构、打开文件表。</li>
+</ul>
+<p><img alt="image-20260609110400675" src="image-20260609110400675.png" /></p>
+<p><img alt="image-20260609110428894" src="image-20260609110428894.png" /></p>
+<p>inode 作为类似索引，指向实际的 FCB 块。</p>
+<h4 id="_4">文件存储空间分配<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>连续分配：FCB 连着分布在存储中</li>
+<li>链接分配 (FAT)：FCB 分布不连续，上一个 FCB 末尾存放发往下一个 FCB 的指针。</li>
+<li>索引分配：每个文件对应一个索引块，给索引块归档到索引表。每个表项对应一个物理文件块。<ul>
+<li>二级/多级索引。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20260609110734505" src="image-20260609110734505.png" /></p>
+<p>混合索引</p>
+<h4 id="_5">空闲存储空间管理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>位图法：</li>
+</ul>
+<p>需要额外存储</p>
+<p><img alt="image-20260609110806890" src="image-20260609110806890.png" /></p>
+<ul>
+<li>链接法</li>
+</ul>
+<p>无需额外空间，在连续空间中表现不佳</p>
+<p><img alt="image-20260609110849665" src="image-20260609110849665.png" /></p>
+<ul>
+<li>分组法</li>
+</ul>
+<p>通过链表指针，拼接多个空闲块的 <strong>索引表</strong> <img alt="image-20260609110949880" src="image-20260609110949880.png" /></p>
+<ul>
+<li>计数法</li>
+</ul>
+<p>适用于连续分配 / 释放</p>
+<p><img alt="image-20260609111029384" src="image-20260609111029384.png" /></p>
+<h4 id="_6">文件共享<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h5 id="_7">硬链接<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20260609111100023" src="image-20260609111100023.png" /></p>
+<p>已有：(A，inodeA)；再设置 (B，inodeA) 通过相同的索引指向一致的 FCB 。会改变索引节点中的 count 计数。</p>
+<h5 id="_8">符号链接/软链接<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20260609111248960" src="image-20260609111248960.png" /> </p>
+<p><strong>软链接是一个全新的文件</strong> 它可以理解为 (softLink, inodeSoftLink) 指向的 FCBSoftLink 中 存放的是 LinkFile 的文件名。也就是说软链接的修改的引用和原文件的引用是彼此独立的</p>
+<p><img alt="image-20260609111536497" src="image-20260609111536497.png" /></p>
+<p>示例习题：</p>
+<p><img alt="image-20260609111547680" src="image-20260609111547680.png" /></p>
+<ul>
+<li>F2 是软链接，具备向自己的索引。countF2 = 1</li>
+<li>F3 为硬链接，F3、F1 共享一个 inode 此时 countF1 = count F3 = 2</li>
+<li>F1 删除，本质是 F1 对应的 inode 失效，对应的 FCB 中关于 F1 的部分失效。但是 inode 原本是 2 ，自减后得到了 inode = 1 此时 FCB 关于 F3 的部分、以及 FCB 的数据依然存在。countF3 = 1</li>
+</ul>
+<p>B</p>
+<h3 id="_9">习题<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20260609111948872" src="image-20260609111948872.png" /></p>
+<ul>
+<li>1 Disk 1024B<ul>
+<li>1 FCB 64B<ul>
+<li>1 FileName 8B</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>这里的划分方式是给 FCB 进行拆分： </p>
+<p>16B (FileName, FileInterNode); 64B(FileInterNode, FileEtcInfo)</p>
+<p>这里使用分解法与否的效果的关键就在于一个磁盘空间可以存放多少索引的 inode 信息</p>
+<p>假设使用分解法：</p>
+<p>只需给 16B 放入相关的磁盘中，1 disk 可以存放 64 个 inode ，一共只需要 <span class="arithmatex">\(\frac{254}{64}\approx3.96\)</span> 也就是 4 个磁盘就可以存放好文件内部号信息。</p>
+<ul>
+<li>查找文件号次数：</li>
+</ul>
+<p>最坏4次 最好1次 平均 2.5 次找到文件内部号</p>
+<ul>
+<li>根据文件号找到文件控制块：</li>
+</ul>
+<p>1次 </p>
+<p>总共 3.5次。</p>
+<p>不用分解法</p>
+<p>文件内部号存在 FCB 中 一个磁盘可以放 16 个 FCB/内部号。总共需要 <span class="arithmatex">\(\frac{254}{16}\approx15.8\)</span> 也就是 16个磁盘。</p>
+<ul>
+<li>直接查找 FCB 块</li>
+</ul>
+<p>平均 17/2 = 8.5 次</p>
+<p>总共 8.5 次</p>
+<hr />
+<p>分解前占用 n 个盘，分解后占用 m 个盘，那么</p>
+<div class="arithmatex">\[\frac{n+1}{2} \gt \frac{m+1}{2}+1\]</div>
+<div class="arithmatex">\[n &gt; m + 2\]</div>
+<hr />
+<p><img alt="image-20260609114529569" src="image-20260609114529569.png" /></p>
+<blockquote>
+<p>如何理解这里的表目/物理结构</p>
+</blockquote>
+<p>用来作为索引，指向相关的磁盘/逻辑块。</p>
+<p>这里索引结构的设计思路，使得我们可以在一个磁盘块中放大量的表目，作为索引表。一个磁盘块可以存放 256 个指针索引。</p>
+<ul>
+<li>
+<p>60% 文件大小不超过 8 个逻辑块。那么我们先分配 8 个直截索引，来一步到位访问到逻辑块</p>
+</li>
+<li>
+<p>30% 文件大小不超过 260 个块，因为已有 8 个块的直截索引，还差 252 个，可以用一个表目指向索引逻辑表，这里能提供 256 个二级索引，满足要求。</p>
+</li>
+<li>10% 文件大小不超过 65000 个块，参考类似的思路，如果我们使用剩下的最后一个表目指针，设计二级的索引，有：65536 个块 满足需求。</li>
+</ul>
+<h2 id="_10">磁盘存储<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">概念梳理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="_12">存储结构概述<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>存储介质</p>
+<ul>
+<li>磁盘</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20260609161838386" src="image-20260609161838386.png" /></p>
+<ul>
+<li>磁带</li>
+<li>
+<p>SSD</p>
+</li>
+<li>
+<p>访问时间</p>
+</li>
+</ul>
+<p><img alt="image-20260609161834949" src="image-20260609161834949.png" /></p>
+<ul>
+<li>磁盘连接</li>
+</ul>
+<p><img alt="image-20260609161830963" src="image-20260609161830963.png" /></p>
+<h4 id="_13">磁盘调度<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>旋转延迟和传输时间是相对固定的，想要优化磁盘的访问效率，主要在于优化寻道时间，即如何最快的定位到需要的磁道。</p>
+<p>可以把整个磁道系统画成一条数轴，磁头就是一个左右移动的指针。</p>
+<ul>
+<li>FCFS</li>
+</ul>
+<p><img alt="image-20260609115950495" src="image-20260609115950495.png" /></p>
+<p><img alt="image-20260609120157227" src="image-20260609120157227.png" /></p>
+<p>按顺序来</p>
+<ul>
+<li>SSTF</li>
+</ul>
+<p><img alt="image-20260609161737941" src="image-20260609161737941.png" /></p>
+<p><img alt="image-20260609161747987" src="image-20260609161747987.png" /></p>
+<p>100开始 最近90 ； 90后，最近58；58后，最近55....</p>
+<p>会饥饿</p>
+<ul>
+<li>SCAN</li>
+</ul>
+<p><img alt="image-20260609161806494" src="image-20260609161806494.png" /></p>
+<p>基于 SSTF ，固定磁头走的方向，直到走到磁道尽头再掉头。</p>
+<p><img alt="image-20260609161811576" src="image-20260609161811576.png" /></p>
+<p>先往150 移动，再考虑慢慢往回。</p>
+<ul>
+<li>CSCAN </li>
+</ul>
+<p><img alt="image-20260609161816385" src="image-20260609161816385.png" /></p>
+<p>与 SCAN 的区分在于： SCAN 的去程和返程都处理磁道任务， CSCAN 只有去程处理，其余立刻返回。</p>
+<p>对于两端请求公平。</p>
+<ul>
+<li>Look / C-Look</li>
+</ul>
+<p><img alt="image-20260609131349460" src="image-20260609131349460.png" /></p>
+<p>与磁道的尽头不太一样，走到请求的尽头就掉头。</p>
+<ul>
+<li>N-Step-SCAN</li>
+</ul>
+<p>先给所有的磁道请求分成 N 个队列，队列使用 FCFS 。每个队列中使用 SCAN。</p>
+<ul>
+<li>FSCAN</li>
+</ul>
+<p>简化到 2 个队列 </p>
+<ul>
+<li>一个存放初始的所有请求</li>
+<li>一个存放在扫描过程中新到的所有请求。</li>
+</ul>
+<p><img alt="image-20260609161858660" src="image-20260609161858660.png" /></p>
+<ul>
+<li>4-Step-SCAN</li>
+</ul>
+<p>进行拆分，Queue 1 : <code>[98, 183, 37, 122]</code> Queue 2 : <code>[14, 124, 65, 67]</code> Queue 3 : <code>[80, 25]</code></p>
+<p>SCAN 默认请求结尾调头</p>
+<p>Queue 1 ： </p>
+<div class="arithmatex">\[50\to98\to122\to183\to37\quad l_1=183-50+183-37=279\]</div>
+<p>Queue 2 ： </p>
+<div class="arithmatex">\[37\to14\to65\to67\to124\quad l_2=37-14+124-14=133\]</div>
+<p>Queue 3 ： </p>
+<div class="arithmatex">\[124\to80\to25\quad l_3=124-25=99\]</div>
+<p><span class="arithmatex">\(L=511\)</span></p>
+<ul>
+<li>FSCAN</li>
+</ul>
+<p>Queue 1 ： <code>[98, 183, 37, 122, 14, 124, 65, 67]</code> Queue 2 : <code>[80, 25]</code></p>
+<p>Queue 1 :</p>
+<div class="arithmatex">\[50\to65\to67\to98\to122\to124\to183\to37\to14\quad l_1=183-50+183-14=302\]</div>
+<p>Queue 2 : </p>
+<div class="arithmatex">\[14\to25\to80\quad l_2=80-14=66\]</div>
+<p><span class="arithmatex">\(L=368\)</span></p>
+<h4 id="_14">磁盘管理与优化<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ul>
+<li>格式化与引导
+    <img alt="image-20260609162350655" src="image-20260609162350655.png" /></li>
+<li>
+<p>坏区管理与优化
+    <img alt="image-20260609162355299" src="image-20260609162355299.png" /></p>
+</li>
+<li>
+<p>空间交换
+    <img alt="image-20260609162400648" src="image-20260609162400648.png" /></p>
+</li>
+</ul>
+<h4 id="_15">磁盘容错技术<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>分三级展开：</p>
+<ul>
+<li>第一级容错技术</li>
+<li>第二级容错技术<ul>
+<li>双份目录</li>
+<li>写后读校验</li>
+<li>磁盘镜像</li>
+<li>磁盘双工</li>
+</ul>
+</li>
+<li>第三级容错技术<ul>
+<li>文件服务器镜像</li>
+<li>RAID 技术<ul>
+<li>RAID 0#
+    数据条带</li>
+<li>RAID 1#
+    磁盘镜像</li>
+<li>RAID 2#
+    字存取，提供冗余检测</li>
+<li>RAID 3# 
+    Simplier 2# 使用奇偶校验盘</li>
+<li>RAID 4#
+    类似 3# 但是数据按 Block 拆分</li>
+<li>RAID 5#、6#、7#</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_16">习题<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20260609162417122" src="image-20260609162417122.png" /></p>
+<p>前两者不管方向。</p>
+<ol>
+<li>FCFS</li>
+</ol>
+<div class="arithmatex">\[143\to86\to147\to91\to177\to94\to150\to102\to175\to130\quad L=63+61+56+86+83+56+48+73+45=571\]</div>
+<ol start="2">
+<li>SSTF</li>
+</ol>
+<p>Queue <code>[86, 147, 91, 177, 94, 150, 102, 175, 130]</code></p>
+<div class="arithmatex">\[143\to147\to150\to130\to102\to94\to91\to86\to175\to177\quad L=4+3+20+28+8+3+5+89+2=162\]</div>
+<ol start="3">
+<li>Look</li>
+</ol>
+<p>按增大的方向走，走到请求尽头调头。</p>
+<div class="arithmatex">\[143\to147\to150\to175\to177\to130\to102\to94\to91\to86\quad L=4+3+25+2+47+28+8+3+5=125\]</div>
+<hr />
+<p><img alt="image-20260609162452152" src="image-20260609162452152.png" /></p>
+<p><img alt="image-20260609162454966" src="image-20260609162454966.png" /></p>
+<ol>
+<li>2KB = 2 * 1024 * 8 = 16386 Bits 使用位示图即可，一个比特代表一个磁盘的空闲状态。</li>
+<li><strong>“寻道 + 等半圈 + 读数据”</strong> 先提取关键点：初始在 100，向变大方向移动。先按照 CSCAN 梳理移动序列：</li>
+</ol>
+<p>Queue : <code>[50, 90, 30, 120]</code> 从 100 开始 ： </p>
+<div class="arithmatex">\[100\to120\to30\to50\to90\quad L=120-100+120-30+60=170\]</div>
+<p>寻道用时 : 110 * 1ms = 170ms</p>
+<p>扇区旋转用时 : 1min 6000r -&gt; 1s 100r 转一圈只需要 10ms , 读取一个扇区需要 0.1 ms 平均旋转等待时间为 5ms 综合用时 170 + (5.1) * 4 = 190.4 ms</p>
+<ol start="3">
+<li>非常简洁，我们都已经不考虑寻道时间，直接 FCFS 即可， Less is More</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
