@@ -12,12 +12,14 @@ nav:
       - 算法设计与分析:
           - 课程主页: course/algorithm/index.md
           - 算法概念和基础: course/algorithm/lect1.md
+          - 排序与递归: course/algorithm/lect2.md
       - 计算机网络:
           - 课程主页: course/network/index.md
           - 课程基础: course/network/base.md
   - Study:
       - Overview: study/index.md
       - 随笔: study/essays/index.md
+      - 内生安全: study/llm/index.md
   - Daily:
       - Overview: daily/index.md
 theme:
