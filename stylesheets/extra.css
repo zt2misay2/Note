@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap");
+
+/* Claude-inspired typography. Material still controls sizing, spacing and layout. */
+:root {
+  --md-text-font: "Noto Serif SC", "Source Han Serif SC", "Noto Serif CJK SC", serif;
+  --md-code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+/* Claude-inspired warm light palette, mapped to Material's own color system. */
+:root,
+[data-md-color-scheme="default"] {
+  --note-bg: #faf9f5;
+  --note-surface: #f5f2ec;
+  --note-text: #2b2621;
+  --note-muted: #625950;
+  --note-heading: #1c1815;
+  --note-accent: #bc6a3a;
+  --note-accent-dark: #9d552d;
+  --note-border: #ddd5ca;
+  --note-selection: #e8ddd0;
+  --note-code-bg: #fcfcfa;
+
+  --md-default-bg-color: var(--note-bg);
+  --md-default-fg-color: var(--note-text);
+  --md-default-fg-color--light: var(--note-muted);
+  --md-default-fg-color--lighter: #8a8279;
+  --md-default-fg-color--lightest: #bbb5aa;
+
+  --md-primary-fg-color: var(--note-accent);
+  --md-primary-fg-color--light: #cf8b64;
+  --md-primary-fg-color--dark: var(--note-accent-dark);
+  --md-primary-bg-color: #fffaf5;
+  --md-primary-bg-color--light: #ffffffb3;
+
+  --md-accent-fg-color: var(--note-accent);
+  --md-accent-fg-color--transparent: #bc6a3a1a;
+  --md-accent-bg-color: #fffdfa;
+
+  --md-code-bg-color: var(--note-code-bg);
+  --md-code-fg-color: var(--note-heading);
+  --md-typeset-a-color: var(--note-accent);
+  --md-typeset-mark-color: var(--note-selection);
+  --md-typeset-table-color: #72695e42;
+  --md-typeset-table-color--light: #72695e14;
+
+  --md-code-hl-color: #bc6a3a1a;
+  --md-code-hl-color--light: #bc6a3a14;
+  --md-code-hl-number-color: #c06a2a;
+  --md-code-hl-special-color: #2c5ec6;
+  --md-code-hl-function-color: #a04b91;
+  --md-code-hl-constant-color: #6658b4;
+  --md-code-hl-keyword-color: #7b2ff7;
+  --md-code-hl-string-color: #2f8f2f;
+  --md-code-hl-name-color: var(--note-heading);
+  --md-code-hl-operator-color: var(--note-heading);
+  --md-code-hl-punctuation-color: var(--note-muted);
+  --md-code-hl-comment-color: var(--note-muted);
+  --md-code-hl-generic-color: var(--note-muted);
+  --md-code-hl-variable-color: #2c5ec6;
+}
+
+/* Keep the font choice when Material's dark scheme is enabled later. */
+[data-md-color-scheme="slate"] {
+  --md-text-font: "Noto Serif SC", "Source Han Serif SC", "Noto Serif CJK SC", serif;
+  --md-code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+::selection {
+  background-color: var(--note-selection);
+}
